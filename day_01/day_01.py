@@ -22,7 +22,7 @@ def part_01(df:pd.DataFrame):
     df = pd.merge(df, df, on='merge')
     df['sum'] = df['input_x'] + df['input_y']
     df['product'] = df['input_x'] * df['input_y']
-    df = df.where(df['sum']==2020).dropna()
+    df = df.where(df['sum']==2020)
     df = df.dropna()
     return df
 
