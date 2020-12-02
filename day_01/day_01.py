@@ -1,4 +1,5 @@
 import pandas as pd
+from timeit import timeit
 
 array=[1567,1223,1758,1842,1933,1898,1409,1058,1533,1417,1032,1634,1477,1394,
     1888,1972,1237,1390,1677,1546,1302,1070,1369,1455,1065,1924,1593,1131,1064,
@@ -38,3 +39,7 @@ def part_02(df:pd.DataFrame):
 
 print(part_01(input))
 print(part_02(input))
+part_01_time = timeit(lambda: part_01(input), number=10)
+print(f"Time in sec for doing part_01 10 times = {part_01_time:.3f}")
+part_02_time = timeit(lambda: part_02(input), number=10)
+print(f"Time in sec for doing part_02 10 times = {part_02_time:.3f}")

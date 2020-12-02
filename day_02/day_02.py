@@ -1,5 +1,6 @@
 import pandas as pd
 import re
+from timeit import timeit
 
 array = ["1-8 n: dpwpmhknmnlglhjtrbpx",
 "11-12 n: frpknnndpntnncnnnnn",
@@ -1036,8 +1037,11 @@ def part_02(df:pd.DataFrame):
         axis=1)
     df['policy_bool'] = df['occur_pos1_bool'] ^ df['occur_pos2_bool']
     result = sum(df['policy_bool'])
-    print(df)
     return result
 
 print(part_01(input))
 print(part_02(input))
+part_01_time = timeit(lambda: part_01(input), number=10)
+print(f"Time in sec for doing part_01 10 times = {part_01_time:.3f}")
+part_02_time = timeit(lambda: part_02(input), number=10)
+print(f"Time in sec for doing part_02 10 times = {part_02_time:.3f}")
